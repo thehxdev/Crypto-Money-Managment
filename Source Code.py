@@ -1,14 +1,16 @@
+
 import os
 
 os.system("title Money Management by Hx")
 
-print(" ")
+print("")
 print("$$$ ONLY FOR CRYPTO MARKET $$$")
-print(" ")
+print("")
 print("[+] Coded By Hossein (Hx) - @hxPyLover")
-print("Version = 1.1.0")
-print(" ")
+print("Version = 1.2.0")
+print("")
 print("="*40)
+
 Capital = input("Account Balance (None Decimals): ")
 Entry = input("Entry Price: ")
 Stop_Loss = input("StopLoss: ")
@@ -26,19 +28,28 @@ Leverage = int(Leverage)
 
 # Formulas
 Risked_Capital = (Capital*(Risk/100))
-Position_Size = (Capital*(Risk/100)/(Entry-Stop_Loss))
-Margin = ((((Capital*(Risk/100))/(Entry-Stop_Loss))*Entry)/Leverage)
-Profit = ((Capital*(Risk/100)/(Entry-Stop_Loss))*(Target-Entry))
-Risk_Reward = (((Capital*(Risk/100)/(Entry-Stop_Loss))*(Target-Entry))/(int(Capital)*(Risk/100)))
+Position_Size = (Risked_Capital /(Entry-Stop_Loss))
+Margin = ((Position_Size * Entry)/Leverage)
+Profit = (Position_Size * (Target-Entry))
+Risk_Reward = (Profit/Risked_Capital)
 roe = ((Profit/Margin)*100)
 
 # Outputs
-print("Risked Capital = "+str(Risked_Capital))
-print("Position Size = "+str(Position_Size))
-print("Margin = "+str(Margin))
-print("Profit (At TP) = "+str(Profit))
-print("R/R ratio = "+str(Risk_Reward))
-print("Profit (% - With Leverage) = "+str(roe))
+print("Risked Capital = "+str("%.1f" % Risked_Capital))
+print("Position Size = "+str("%.3f" % Position_Size))
+print("Margin = "+str("%.1f" % Margin))
+print("Profit (At TP) = "+str("%.2f" % Profit))
+print("R/R ratio = "+str("%.1f" % Risk_Reward))
+print("Profit (% - With Leverage) = "+str("%.1f" % roe))
+
+print("")
+
+if Margin > Risked_Capital:
+    print("Your Trade Is Valid.")
+
+else:
+    print("!!! You Cant Trade. Please Reduce Your Leverage !!!")
+
 
 print("="*40)
 print("")
