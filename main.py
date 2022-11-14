@@ -1,9 +1,5 @@
-import os
-
-os.system("title Money Management by Hx")
-
 print("\n$$$ ONLY FOR CRYPTO MARKET $$$\n")
-print("[+] Coded By Hossein (Hx) - @hxPyLover")
+print("[+] Coded By Hossein (Hx) - @thehxdev")
 print("Version = 2.0.0\n")
 print("="*40)
 
