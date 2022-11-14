@@ -11,13 +11,6 @@ Risk = float(input("Risk (0.1 - 100): "))
 Leverage = int(input("Leverage: "))
 print("="*40)
 
-# Capital = int(Capital)
-# Entry = float(Entry)
-# Stop_Loss = float(Stop_Loss)
-# Target = float(Target)
-# Risk = float(Risk)
-# Leverage = int(Leverage)
-
 # Formulas
 Risked_Capital = (Capital * (Risk / 100))
 Position_Size = (Risked_Capital / (Entry - Stop_Loss))
@@ -25,14 +18,6 @@ Margin = ((Position_Size * Entry) / Leverage)
 Profit = (Position_Size * (Target - Entry))
 Risk_Reward = (Profit / Risked_Capital)
 #Roe = ((Profit / Margin) * 100)
-
-# Outputs
-# print("Risked Capital = "+str("%.1f" % Risked_Capital))
-# print("Position Size = "+str("%.3f" % Position_Size))
-# print("Margin = "+str("%.1f" % Margin))
-# print("Profit (At TP) = "+str("%.2f" % Profit))
-# print("R/R ratio = "+str("%.1f" % Risk_Reward))
-# print("Profit (% - With Leverage) = "+str("%.1f" % Roe))
 
 print("{0}\n{1}\n{2}\n{3}\n{4}\n".format(
               f"Risked Capital = {round(Risked_Capital , 1)}",
