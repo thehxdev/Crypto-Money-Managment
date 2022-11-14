@@ -21,14 +21,18 @@ Risk_Reward = (Profit / Risked_Capital)
 
 print("{0}\n{1}\n{2}\n{3}\n{4}\n".format(
               f"Risked Capital = {round(Risked_Capital , 1)}",
-              f"Position Size = {round(Position_Size , 3)}",
-              f"Margin = {round(Margin , 1)}",
+              f"Position Size = {round(abs(Position_Size) , 3)}",
+              f"Margin = {round(abs(Margin) , 1)}",
               f"Profit = {round(Profit , 2)}",
               f"R/R ratio = {round(Risk_Reward , 1)}",
               ))
 
+if Entry < Stop_Loss:
+    print("Short Position!")
+else:
+    print("Long Position!")
 
-if Margin > Risked_Capital:
+if abs(Margin) > abs(Risked_Capital):
     print("Your Trade Is Valid.")
 else:
     print("!!! You Can't Trade. Please Reduce Your Leverage !!!")
